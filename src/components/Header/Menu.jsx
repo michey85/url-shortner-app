@@ -1,8 +1,14 @@
-import { Button } from 'components/Button'
+import { useSelector, useDispatch } from 'react-redux';
+
+import { Button } from 'components/Button';
+import { selectUser, removeUser } from 'store/slices/userSlice';
 
 import classes from './Menu.module.scss';
 
-export const Menu = ({links = []}) => {
+export const Menu = ({links = [], handleSignup, handleLogin}) => {
+    const dispatch = useDispatch();
+    const {token} = useSelector(selectUser);
+
     return (
         <div className={classes.menu}>
             <div className={classes.pages}>
@@ -17,9 +23,18 @@ export const Menu = ({links = []}) => {
                 ))}
             </div>
             <div className={classes.login}>
-                    {/* TODO: add isAuth ternary */}
-                    <Button variant="link">Login</Button>
-                    <Button>Sign Up</Button>
+                {token ? (
+                    <Button
+                        onClick={() => dispatch(removeUser())}
+                    >
+                        Log out
+                    </Button>
+                ) : (
+                    <>
+                        <Button variant="link" onClick={handleLogin}>Login</Button>
+                        <Button onClick={handleSignup}>Sign Up</Button>
+                    </>
+                )}
             </div>
         </div>
     )

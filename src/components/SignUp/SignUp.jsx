@@ -1,43 +1,30 @@
-import {useState} from 'react';
-import { useDispatch } from 'react-redux'
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { setUser } from 'store/slices/userSlice'
+import {useDispatch} from 'react-redux'
+import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
+import {setUser} from 'store/slices/userSlice'
+import {Form} from './Form';
 
-import {Button} from 'components/Button';
-
-export const SignUp = () => {
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+export const SignUp = ({closeModal}) => {
     const dispatch = useDispatch();
 
-    const handleRegister = () => {
+    const handleRegister = (email, pass) => {
         console.log('handleRegister');
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, pass)
-            .then(res => {
+            .then(({user}) => {
                 dispatch(setUser({
-                    email: res.email,
-                    token: res.accessToken,
+                    id: user.uid,
+                    email: user.email,
+                    token: user.accessToken,
                 }))
+                closeModal();
             })
             .catch(console.error)
     }
 
     return (
-        <div>
-            <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-                type="password"
-                value={pass}
-                onChange={(e) => setPass(e.target.value)}
-            />
-            <Button
-                onClick={handleRegister}
-            >Register</Button>
-        </div>
+        <Form
+            handleClick={handleRegister}
+            title="Register"
+        />
     )
 }
