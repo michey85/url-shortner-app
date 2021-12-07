@@ -26,11 +26,20 @@
     }
 }
 
+// sizes
 .small {}
 
-.medium {}
+.medium {
+    line-height: 2.75;
+    padding: 0 2.5rem;
+}
 
 .large {
     line-height: 3.5;
     padding: 0 2.5rem;
+}
+
+// variants
+.square {
+    border-radius: var(--radii-sm);
 }

@@ -12,6 +12,7 @@
   --gray-300: hsl(257, 7%, 63%);
   --gray-600: hsl(255, 11%, 22%);
   --gray-900: hsl(260, 8%, 14%);
+  --bg-light: hsl(225, 33%, 95%);
 
   /* font */
   --family: 'Poppins', sans-serif;
@@ -19,6 +20,7 @@
   --fw-bold: 700;
 
   --radii: 1rem;
+  --radii-sm: 0.5rem;
 }
 
 body {
@@ -33,7 +35,8 @@ body {
 .container {
   width: 100%;
   max-width: 900px;
-  padding: 0 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   margin: 0 auto;
 }
 
