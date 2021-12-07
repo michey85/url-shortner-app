@@ -36,3 +36,8 @@ body {
   padding: 0 1.5rem;
   margin: 0 auto;
 }
+
+#root {
+  width: 100%;
+  overflow: hidden;
+}

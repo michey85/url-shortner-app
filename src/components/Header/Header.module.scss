@@ -4,6 +4,11 @@
 
     align-items: center;
     padding: 2rem 1.5rem !important;
+    
+    @media (min-width: 767px) {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
 }
 
 .logo {
