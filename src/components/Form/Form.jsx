@@ -12,7 +12,9 @@ const Form = () => {
     formState: {errors},
     handleSubmit,
     reset,
-  } = useForm();
+  } = useForm({
+    mode: 'onSubmit',
+  });
 
   const onSubmit = ({Url}) => {
     dispatch(createShortLink(Url));
