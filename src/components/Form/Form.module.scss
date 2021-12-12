@@ -6,6 +6,7 @@
 }
 
 .form {
+    position: relative;
     border-radius: var(--radii-sm);
     padding: 1.5rem 1rem;
     background-image: url('../../images/bg-shorten-mobile.svg');
@@ -49,4 +50,14 @@
         line-height: 2.5;
         padding: 0.5rem 1.5rem;
     }
+}
+
+.error {
+    position: absolute;
+    left: 2rem;
+    bottom: .5rem;
+
+    color: var(--secondary-300);
+    font-size: 14px;
+    font-style: italic;
 }
