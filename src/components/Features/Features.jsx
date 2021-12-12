@@ -1,6 +1,6 @@
 import classes from './Features.module.scss';
 
-import { features } from './features';
+import { features } from './data';
 
 const Features = () => {
   return (
