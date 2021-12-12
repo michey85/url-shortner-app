@@ -22,7 +22,11 @@ const Form = () => {
   return (
     <section className={classes.section}>
       <div className="container">
-        <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className={classes.form}
+          autoComplete='off'
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <input
             type="url"
             placeholder="Shorten a link here..."

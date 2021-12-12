@@ -19,9 +19,6 @@ const initialState = {
 const linkSlice = createSlice({
     name: 'links',
     initialState,
-    reducers: {
-
-    },
     extraReducers: {
         [createShortLink.rejected]: (state) => {
             state.loading = 'rejected';
@@ -37,8 +34,6 @@ const linkSlice = createSlice({
         },
     },
 });
-
-// export const {} = linkSlice.actions;
 
 export const selectLinks = state => state.links.items;
 export const selectLoading = state => state.links.loading;
