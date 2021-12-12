@@ -1,22 +1,22 @@
-import {useForm} from 'react-hook-form'
+import {useForm} from 'react-hook-form';
+import {useDispatch} from 'react-redux';
 import {Button} from 'components/Button';
-
-import {URL_SHORTNER} from 'config';
+import {createShortLink} from 'store/slices/linkSlice';
 
 import classes from './Form.module.scss';
 
 const Form = () => {
+  const dispatch = useDispatch();
   const {
     register,
     formState: {errors},
     handleSubmit,
+    reset,
   } = useForm();
 
   const onSubmit = ({Url}) => {
-    alert(Url)
-    fetch(URL_SHORTNER + Url, {
-      method: 'POST',
-    }).then(res => res.json()).then(console.log).catch(console.error)
+    dispatch(createShortLink(Url));
+    reset();
   }
 
   return (
