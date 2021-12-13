@@ -31,13 +31,14 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [GitHub source code](https://github.com/michey85/url-shortner-app)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [on FrontendMentor](https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G/hub/react-with-reduxtoolkit-ve7n2lATV)
+- Live Site URL: [Vercel Deployment](https://url-shortner-app-pi.vercel.app/)
 
 ## Built with
 
 - Semantic HTML5 markup
 - CSS custom properties
+- SCSS
 - Flexbox
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
