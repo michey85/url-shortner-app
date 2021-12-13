@@ -1,7 +1,8 @@
-import { useState } from 'react'
-import { IoMenu } from 'react-icons/io5';
-import { motion, AnimatePresence } from "framer-motion";
-import useMatchMedia from 'use-match-media-hook'
+import {useState} from 'react'
+import {IoMenu} from 'react-icons/io5';
+import {motion, AnimatePresence} from "framer-motion";
+import useMatchMedia from 'use-match-media-hook';
+
 import classes from './Header.module.scss';
 import Logo from 'images/logo.svg';
 import {Menu} from './Menu';

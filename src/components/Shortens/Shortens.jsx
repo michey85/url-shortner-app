@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {useSelector} from 'react-redux';
+import {motion, AnimatePresence} from "framer-motion";
 import {Button} from 'components/Button';
 import {selectLinks} from 'store/slices/linkSlice';
 import classes from './Shortens.module.scss';
@@ -21,16 +22,23 @@ const Shortens = () => {
         <section className={classes.Shortens}>
             <div className='container'>
                 {links.map(item => (
-                    <div key={item.code} className={classes.item} data-active={copiedLink === item.full_short_link2}>
-                        <span>{item.original_link}</span>
-                        <span>{item.full_short_link2}</span>
-                        <Button
-                            variant="square"
-                            onClick={() => copyToClipboard(item.full_short_link2)}
+                    <AnimatePresence key={item.code}>
+                        <motion.div
+                            className={classes.item}
+                            data-active={copiedLink === item.full_short_link2}
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
                         >
-                            {copiedLink === item.full_short_link2 ? 'Copied!' : 'Copy'}
-                        </Button>
-                    </div>
+                            <span>{item.original_link}</span>
+                            <span>{item.full_short_link2}</span>
+                            <Button
+                                variant="square"
+                                onClick={() => copyToClipboard(item.full_short_link2)}
+                            >
+                                {copiedLink === item.full_short_link2 ? 'Copied!' : 'Copy'}
+                            </Button>
+                        </motion.div>
+                    </AnimatePresence>
                 ))}
             </div>
         </section>

@@ -1,11 +1,12 @@
 import {useForm} from 'react-hook-form';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {Button} from 'components/Button';
-import {createShortLink} from 'store/slices/linkSlice';
+import {createShortLink, selectLoading} from 'store/slices/linkSlice';
 
 import classes from './Form.module.scss';
 
 const Form = () => {
+  const loading = useSelector(selectLoading);
   const dispatch = useDispatch();
   const {
     register,
@@ -33,6 +34,7 @@ const Form = () => {
             type="url"
             placeholder="Shorten a link here..."
             className={classes.input}
+            disabled={loading === 'loading'}
             style={{
               outlineColor: errors.Url ? 'var(--secondary-300)' : 'currentColor',
               outlineWidth: errors.Url ? '4px' : '1px',
@@ -49,6 +51,7 @@ const Form = () => {
             variant="square"
             type="submit"
             size="medium"
+            disabled={loading === 'loading'}
           >Shorten it!</Button>
           {errors.Url && (
             <div className={classes.error}>{errors.Url.message}</div>

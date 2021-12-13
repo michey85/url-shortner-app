@@ -1,7 +1,7 @@
-import { createPortal } from 'react-dom';
-import { motion, AnimatePresence } from "framer-motion";
+import {createPortal} from 'react-dom';
+import {motion, AnimatePresence} from "framer-motion";
 
-import { Button } from 'components/Button';
+import {Button} from 'components/Button';
 import classes from './Modal.module.scss';
 
 
@@ -70,4 +70,4 @@ const Modal = (props) => {
     );
 };
 
-export { Modal };
+export {Modal};
